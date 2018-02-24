@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Metroid</title>
+
+	<!-- Reset -->
+	<link rel="stylesheet" href="assets/css/reset.css">
+
+	<!-- Stylesheets -->
+	<link rel="stylesheet" href="assets/css/main_style.css">
+	<link rel="stylesheet" href="assets/css/metroid.css">
+	<link rel="stylesheet" href="assets/css/samus.css">
+
+</head>
+<body>
+	<header>
+		<h1>Metroid</h1>
+	</header>
+	<main>
+		<div id="samus"></div>
+		<div class="scoreholder"></div>
+	</main>
+	<footer>
+		<div class="copyright">&copy; 2018 Jon White</div>
+		<div class="hint">
+			<p>Press M to launch a metroid</p>
+		</div>
+		<div class="links">
+			<ul>
+				<li id="about">About</li>
+				<li id="levels">Levels</li>
+				<li id="contact-us">Contact Us</li>
+			</ul>
+		</div>
+	</footer>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="assets/js/game.js"></script>
+	<script src="assets/js/hero.js"></script>
+	<script src="assets/js/enemy.js"></script>
+	<script src="assets/js/sound_manager.js"></script>
+	<script>
+		game.start();
+	</script>
+</body>
+</html>
