@@ -13,12 +13,13 @@ var game = {
 
 		setTimeout(function(){
 			score_holder.classList.remove("bloom");
-		}, 1000)
+		}, 1000);
 	}
 }
 
 document.onkeyup = function(event){
 	if (event.key.toLowerCase() === "m"){
 		metroid.spawn(2);
+		console.log('Metroid Launched');
 	}
 };

@@ -10,6 +10,16 @@
 	background-position: center;
 }
 
+#samus.run-left{
+	background-image: url(../images/samus/SamusRun.gif);
+	animation: run_to_left 2.5s linear infinite forwards;
+}
+
+#samus.run-right{
+	background-image: url(../images/samus/SamusVariaRun-1.gif);
+	animation: run_to_right 2.5s linear infinite forwards;
+}
+
 #samus.angle-up-left{
 	background-image: url(../images/samus/Samus_VariaSuit_angleup_rightg.gif);
 }
@@ -26,16 +36,6 @@
 	background-image: url(../images/samus/Samus_VariaSuit_angledown_left.gif);
 }
 
-#samus.run-left{
-	background-image: url(../images/samus/SamusRun.gif);
-	animation: run_to_left 2.5s linear infinite;
-}
-
-#samus.run-right{
-	background-image: url(../images/samus/SamusVariaRun-1.gif);
-	animation: run_to_right 2.5s linear infinite;
-}
-
 #samus.morph {
 	top: 55%;
 	width: 36px;
@@ -45,42 +45,44 @@
 	background-position: center;	
 }
 
-#samus.jump {
+#samus.fire::after {
+	content: '';
+	position: absolute;
+	animation: projectile_right 1s;
+}
+
+@keyframes projectile_right {
+	
+}
+
+/*#samus.jump {
 	background-image: url(../images/samus/SamusJump-1.gif);
+	animation: jump 1s;
+}*/
+
+#samus.pause {
+	animation-play-state: paused;
 }
 
 @keyframes run_to_right {
-	0% {
-		left: 50%;
-	}
-
-	50% {
-		left: calc(100% + 10px);
-	}
-
-	50.001% {
-		left: -10px;
-	}
-
-	100% {
-		left: 50%;
-	}
+	0%,100% {left: 50%;}
+	50% {left: calc(100% + 10px);}
+	50.001% {left: -10px;}
 }
 
 @keyframes run_to_left {
-	0% {
-		left: 50%;
-	}
-
-	50% {
-		left: -10px;
-	}
-
-	50.001% {
-		left: calc(100% + 10px);
-	}
-
-	100% {
-		left: 50%;
-	}
+	0%,100% {left: 50%;}
+	50% {left: -10px;}
+	50.001% {left: calc(100% + 10px);}
 }
+
+/*@keyframes jump {
+	0% {background-image: url(../images/samus/SamusFront.gif);}
+	1%,99% {
+		top: 50%;
+		background-image: url(../images/samus/SamusJump-1.gif);
+	}
+	20% {top: 50%;}
+	50%{top: 30%;}
+	100% {background-image: url(../images/samus/SamusFront.gif);}
+}*/

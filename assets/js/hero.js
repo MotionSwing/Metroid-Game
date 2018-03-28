@@ -1,54 +1,60 @@
 var hero = $("#samus");
 
-document.onkeydown = function(event){
-	console.log(event.key);
-
-	if (event.key.toLowerCase() === "q" || event.key.toLowerCase() === "7" || event.key.toLowerCase() === "Home"){
-		hero.addClass('angle-up-left');
+$(document).keydown(function(event) {
+	// console.log(event.key);
+	switch (event.key.toLowerCase()) {
+		case "q":case "7":case "Home":
+			hero.addClass('angle-up-left');
+			break;
+		case "e":case "9":case "PageUp":
+			hero.addClass('angle-up-right');
+			break;
+		case "z":case "1":case "End":
+			hero.addClass('angle-down-left');
+			break;
+		case "c":case "3":case "PageDown":
+			hero.addClass('angle-down-right');
+			break;
+		case "a":case "4":case "ArrowLeft":
+			hero.removeClass('run-right pause').addClass('run-left');
+			break;
+		case "d":case "6":case "ArrowRight":
+			hero.removeClass('run-left pause').addClass('run-right');
+			break;
+		case "s":case "5":case "ArrowDown":
+			hero.addClass('morph');
+			break;
+		case " ":
+			// hero.addClass('jump');
+			break;
 	}
+});
 
-	if (event.key.toLowerCase() === "e" || event.key.toLowerCase() === "9" || event.key.toLowerCase() === "PageUp"){
-		hero.addClass('angle-up-right');
+$(document).keyup(function(event){
+	switch (event.key.toLowerCase()) {
+		case "a":case "4":case "ArrowLeft":
+			hero.addClass('pause');
+			break;
+		case "d":case "6":case "ArrowRight":
+			hero.addClass('pause');
+			break;
+		case "q":case "7":case "Home":
+			hero.removeClass('angle-up-left');
+			break;
+		case "e":case "9":case "PageUp":
+			hero.removeClass('angle-up-right');
+			break;
+		case "z":case "1":case "End":
+			hero.removeClass('angle-down-left');
+			break;
+		case "c":case "3":case "PageDown":
+			hero.removeClass('angle-down-right');
+			break;
+		case "s":case "5":case "ArrowDown":
+			hero.removeClass('morph');
+			break;
+		case " ":
+			// hero.removeClass('jump');
+			break;
 	}
-
-	if (event.key.toLowerCase() === "z" || event.key.toLowerCase() === "1" || event.key.toLowerCase() === "End"){
-		hero.addClass('angle-down-left');
-	}
-
-	if (event.key.toLowerCase() === "c" || event.key.toLowerCase() === "3" || event.key.toLowerCase() === "PageDown"){
-		hero.addClass('angle-down-right');
-	}
-	if (event.key.toLowerCase() === "a" || event.key.toLowerCase() === "4" || event.key.toLowerCase() === "ArrowLeft"){
-		hero.addClass('run-left');
-	}
-
-	if (event.key.toLowerCase() === "d" || event.key.toLowerCase() === "6" || event.key.toLowerCase() === "ArrowRight"){
-		hero.addClass('run-right');
-	}
-
-	if (event.key.toLowerCase() === "x" || event.key.toLowerCase() === "2" || event.key.toLowerCase() === "ArrowDown"){
-		hero.addClass('morph');
-
-		document.onkeydown = function(event){
-			if (event.key.toLowerCase() === "c" || event.key.toLowerCase() === "3" || event.key.toLowerCase() === "PageDown"){
-				hero.addClass('run-right');
-			}
-			if (event.key.toLowerCase() === "z" || event.key.toLowerCase() === "1" || event.key.toLowerCase() === "End"){
-				hero.addClass('run-left');
-			}
-		};
-		document.onkeyup = function(event){
-			hero.removeClass("run-right run-left");
-		};
-		// hero.addClass('morph');
-	}
-
-	if (event.key.toLowerCase() === " "){
-		hero.addClass('jump');
-	}
-};
-
-document.onkeyup = function(event){
-	hero.removeClass();
-	// $("#samus").css('background-image','url(assets/images/samus/SamusFront.gif)');
-};
+});
