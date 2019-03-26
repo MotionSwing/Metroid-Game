@@ -1,60 +1,101 @@
-var hero = $("#samus");
+// var hero = $("#samus");
+var hero = document.querySelector("#samus");
 
-$(document).keydown(function(event) {
-	// console.log(event.key);
+document.addEventListener('keydown', function(event){
+	console.log(`${event.key} (${event.keyCode})`);
 	switch (event.key.toLowerCase()) {
-		case "q":case "7":case "Home":
-			hero.addClass('angle-up-left');
+		case "q":
+		case "7":
+		case "Home":
+			hero.classList.remove('morph');
+			hero.classList.add('angle-up-left');
 			break;
-		case "e":case "9":case "PageUp":
-			hero.addClass('angle-up-right');
+		case "e":
+		case "9":
+		case "PageUp":
+			hero.classList.remove('morph');
+			hero.classList.add('angle-up-right');
 			break;
-		case "z":case "1":case "End":
-			hero.addClass('angle-down-left');
+		case "z":
+		case "1":
+		case "End":
+			hero.classList.remove('morph');
+			hero.classList.add('angle-down-left');
 			break;
-		case "c":case "3":case "PageDown":
-			hero.addClass('angle-down-right');
+		case "c":
+		case "3":
+		case "PageDown":
+			hero.classList.remove('morph');
+			hero.classList.add('angle-down-right');
 			break;
-		case "a":case "4":case "ArrowLeft":
-			hero.removeClass('run-right pause').addClass('run-left');
+		case "a":
+		case "4":
+		case "ArrowLeft":
+			hero.classList.remove('run-right', 'pause');
+			hero.classList.add('run-left');
 			break;
-		case "d":case "6":case "ArrowRight":
-			hero.removeClass('run-left pause').addClass('run-right');
+		case "d":
+		case "6":
+		case "ArrowRight":
+			hero.classList.remove('run-left', 'pause');
+			hero.classList.add('run-right');
 			break;
-		case "s":case "5":case "ArrowDown":
-			hero.addClass('morph');
+		case "s":
+		case "2":
+		case "ArrowDown":
+			hero.classList.add('morph');
 			break;
-		case " ":
-			// hero.addClass('jump');
+		case "8":
+		case "w":
+			hero.classList.add('jump');
 			break;
-	}
+		case "5":
+			hero.className = '';
+			hero.classList.add('pause');
+			break;
+	};
 });
 
-$(document).keyup(function(event){
+document.addEventListener('keyup', function(event) {
+	console.log(`keyup: ${event.key} (${event.keyCode})`);
 	switch (event.key.toLowerCase()) {
-		case "a":case "4":case "ArrowLeft":
-			hero.addClass('pause');
+		case "q":
+		case "7":
+		case "Home":
+			hero.classList.remove('angle-up-left');
 			break;
-		case "d":case "6":case "ArrowRight":
-			hero.addClass('pause');
+		case "e":
+		case "9":
+		case "PageUp":
+			hero.classList.remove('angle-up-right');
 			break;
-		case "q":case "7":case "Home":
-			hero.removeClass('angle-up-left');
+		case "z":
+		case "1":
+		case "End":
+			hero.classList.remove('angle-down-left');
 			break;
-		case "e":case "9":case "PageUp":
-			hero.removeClass('angle-up-right');
+		case "c":
+		case "3":
+		case "PageDown":
+			hero.classList.remove('angle-down-right');
 			break;
-		case "z":case "1":case "End":
-			hero.removeClass('angle-down-left');
+		case "a":
+		case "4":
+		case "ArrowLeft":
+			hero.classList.add('pause');
 			break;
-		case "c":case "3":case "PageDown":
-			hero.removeClass('angle-down-right');
+		case "d":
+		case "6":
+		case "ArrowRight":
+			hero.classList.add('pause');
 			break;
-		case "s":case "5":case "ArrowDown":
-			hero.removeClass('morph');
+		case "s":
+		case "ArrowDown":
+			hero.classList.remove('morph');
 			break;
-		case " ":
-			// hero.removeClass('jump');
+		case "8":
+		case "w":
+			hero.classList.remove('jump');
 			break;
-	}
+	};
 });
